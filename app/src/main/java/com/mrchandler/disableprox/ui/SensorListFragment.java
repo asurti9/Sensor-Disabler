@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import com.mrchandler.disableprox.R;
 import com.mrchandler.disableprox.util.SensorUtil;
 
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 
 public class SensorListFragment extends ListFragment {
@@ -71,6 +74,7 @@ public class SensorListFragment extends ListFragment {
 
                 Sensor sensor = getItem(position);
                 String title = SensorUtil.getHumanStringType(sensor);
+                Log.d(TAG, "EIC getView: title: "+title);
                 if (title == null) {
                     title = sensor.getName();
                 }

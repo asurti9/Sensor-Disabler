@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.os.Environment;
+import android.util.Log;
 
 import com.mrchandler.disableprox.util.BlocklistType;
 import com.mrchandler.disableprox.util.Constants;
@@ -53,6 +54,23 @@ public abstract class SensorModificationMethod {
 
     private SharedPreferences getSharedPreferences(Context context) {
         return SensorDisablerPreferenceFactory.getInstance(context);
+    }
+
+    private float[] getActualSensorValues(Sensor sensor, Context context) {
+        Log.d("EIC : ", "getActualSensorValues: ");
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        String mockValuesKey = SensorUtil.generateUniqueSensorMockValuesKey(sensor);
+        String[] mockValuesStrings;
+        mockValuesStrings = sharedPreferences.getString(mockValuesKey, "").split(":", 0);
+
+        if (sharedPreferences.contains(mockValuesKey)) {
+            mockValuesStrings = sharedPreferences.getString(mockValuesKey, "").split(":", 0);
+        } else {
+            return new float[0];
+        }
+        float[] actualSensorValues = new float[mockValuesStrings.length];
+        // TODO: Add logic to populate actualSensorValues with actual (true) sensor values.
+        return actualSensorValues;
     }
 
     private boolean isWhitelistEnabled(Context context) {
