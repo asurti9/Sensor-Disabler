@@ -74,7 +74,7 @@ public class SensorListFragment extends ListFragment {
 
                 Sensor sensor = getItem(position);
                 String title = SensorUtil.getHumanStringType(sensor);
-                Log.d(TAG, "EIC getView: title: "+title);
+                Log.d("FLANCE : ", " getView: title: "+title);
                 if (title == null) {
                     title = sensor.getName();
                 }

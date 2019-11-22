@@ -31,7 +31,7 @@ public class MockSensorValuesModificationMethodApi18 extends MockSensorValuesMod
 
                 Object systemSensorManager = XposedHelpers.getObjectField(param.thisObject, "mManager");
                 SparseArray<Sensor> sensors = getSensors(systemSensorManager);
-                Log.d("EIC : ", "beforeHookedMethod: modifySensor: Api level 18");
+                Log.d("FLANCE : ", "beforeHookedMethod: modifySensor: Api level 18");
                 // params.args[] is an array that holds the arguments that dispatchSensorEvent received, which are a handle pointing to a sensor
                 // in sHandleToSensor and a float[] of values that should be applied to that sensor.
                 int handle = (Integer) (param.args[0]); // This tells us which sensor was currently called.

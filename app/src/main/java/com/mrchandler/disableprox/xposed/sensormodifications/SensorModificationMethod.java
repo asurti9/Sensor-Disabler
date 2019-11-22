@@ -57,7 +57,7 @@ public abstract class SensorModificationMethod {
     }
 
     private float[] getActualSensorValues(Sensor sensor, Context context) {
-        Log.d("EIC : ", "getActualSensorValues: ");
+        Log.d("FLANCE : ", "getActualSensorValues: ");
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         String mockValuesKey = SensorUtil.generateUniqueSensorMockValuesKey(sensor);
         String[] mockValuesStrings;

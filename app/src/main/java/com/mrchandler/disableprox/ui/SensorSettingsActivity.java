@@ -130,7 +130,7 @@ public class SensorSettingsActivity extends FragmentActivity implements SensorLi
             if (fragment != null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment, CURRENT_FRAGMENT).commit();
                 String sensorTitle = SensorUtil.getHumanStringType(fragment.sensor);
-                Log.d(TAG, "EIC onCreate: sensorTitle: "+sensorTitle);
+                Log.d("FLANCE : ", "onCreate: sensorTitle: "+sensorTitle);
                 if (sensorTitle == null) {
                     sensorTitle = fragment.sensor.getName();
                 }
